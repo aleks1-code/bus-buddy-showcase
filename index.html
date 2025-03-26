@@ -65,38 +65,41 @@
 
     <div class="branch">
       <h3>📡 Real-Time Fare Alerts</h3>
-      <p>Users get instant pop-ups or emails when fare anomalies are detected. Future updates will integrate smartwatch & SMS alerts.</p>
+      <p>Implemented using R Shiny's <code>shinyalert</code> and <code>showNotification()</code> functions. Users are notified via app pop-ups or emails (via <code>sendmailR</code>) when anomalies are detected in fare transactions using predictive models in <code>caret</code>. Future updates aim to integrate with smartwatches and SMS APIs to expand real-time delivery.</p>
     </div>
 
     <div class="branch">
       <h3>📁 Smart Transaction Uploads</h3>
-      <p>Users can upload Go Card data via image or file. Future goal: auto-recognition of fields using OCR & AI.</p>
+      <p>Users can upload Go Card transaction history as CSVs or photos using Shiny's <code>fileInput()</code> or <code>shinyFiles</code> packages. The uploaded data is processed using <code>dplyr</code> and <code>lubridate</code>. In future, OCR capabilities via Python-R integration (e.g., Tesseract) may allow field auto-detection from photos.</p>
     </div>
 
     <div class="branch">
       <h3>🗺️ Interactive Heatmaps</h3>
-      <p>Crowdsourced maps show hotspots of overcharging. Weather overlays will help correlate stormy days with missed touch-offs.</p>
+      <p>Built using R Shiny's <code>leaflet</code> package, the map displays overcharge hotspots based on user reports. Anomaly data is clustered using <code>K-Means</code> or <code>DBSCAN</code>. Weather overlays (from Open Meteo API via <code>httr</code> and <code>jsonlite</code>) are cross-referenced with timestamps to detect environmental patterns affecting fare discrepancies.</p>
     </div>
 
     <div class="branch">
       <h3>📈 Personalised Fare Forecasts</h3>
-      <p>Uses Prophet & linear models to forecast upcoming weekly transport costs. Future idea: sync forecasts to planners/budgeting apps.</p>
+      <p>Predictive cost tools are developed using <code>prophet</code> and <code>lm()</code> for time-series forecasting of weekly travel expenses. R Shiny renders interactive forecast plots using <code>ggplot2</code> and <code>plotly</code>. Future versions may sync forecasts with third-party budgeting apps or calendar planners via API endpoints.</p>
     </div>
 
     <div class="branch">
       <h3>🎮 Gamification & Community</h3>
-      <p>Points & badges for reporting anomalies. Future enhancements include reward systems and student discounts for top contributors.</p>
+      <p>The prototype includes a session-based leaderboard built with <code>reactable</code> and <code>DT</code> packages. Users earn points for submitting fare discrepancies during active sessions using <code>reactiveValues()</code>. To address R Shiny's default data loss on session close, future iterations will integrate persistent storage (e.g., SQLite/PostgreSQL or Firebase) for long-term tracking, user logins, and awarding "Founding Commuter" badges, weekly contributor highlights, and exclusive app features.</p>
     </div>
   </section>
 
   <section>
     <h2>🧭 What's Next?</h2>
     <ul>
-      <li>AI-driven chat to contest fare issues</li>
-      <li>Australia-wide system integration</li>
-      <li>Partnerships with TransLink & Myki</li>
-      <li>Offline reporting features for tourists</li>
-      <li>Google Maps overlays with real-time fare risk data</li>
+      <li>Full database integration for persistent user profiles and reporting history (SQLite, PostgreSQL, Firebase)</li>
+      <li>Gamified rewards tied to public transport discounts or vouchers</li>
+      <li>AI chatbot integration to automate fare dispute submissions to TransLink</li>
+      <li>State-wide and national rollout for use across all major Australian cities (Myki, Opal)</li>
+      <li>Real-time crowd density and bus capacity data overlays on route maps</li>
+      <li>Voice command integration for hands-free usage</li>
+      <li>Offline mode with cached data for tourists or areas with poor coverage</li>
+      <li>Embedded Google Maps view with visual indicators of fare risk zones</li>
     </ul>
   </section>
 
